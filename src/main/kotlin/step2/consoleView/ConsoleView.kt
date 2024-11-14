@@ -42,7 +42,6 @@ class ConsoleView : View {
     }
 
     private fun printFailureConclusion(error: Throwable) {
-        when (error) {
-        }
+        println("디버깅용임 유저한테 들키면 안됨" + error.message)
     }
 }
