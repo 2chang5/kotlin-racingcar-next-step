@@ -1,10 +1,10 @@
 package step2.consoleView
 
-import step2.contorller.ConsoleView
+import step2.contorller.View
 import step2.inputValidator.FourBasicOperationsValidatorFacade
 import step2.inputValidator.InputValidateException
 
-class DefaultConsoleView : ConsoleView {
+class ConsoleView : View {
     override fun getMathExpression(): List<String>? {
         println("안녕하세요 계산요정 멧돼지입니다🐗. 수식을 입력해주세요❤️")
         val input = readLine()?.split(" ")
