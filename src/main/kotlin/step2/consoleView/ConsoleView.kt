@@ -33,11 +33,11 @@ class ConsoleView : View {
         }
     }
 
-    override fun printConclusion(result: Result<Int>) {
+    override fun printConclusion(result: Result<Double>) {
         result.onSuccess(::printSuccessConclusion).onFailure(::printFailureConclusion)
     }
 
-    private fun printSuccessConclusion(conclusion: Int) {
+    private fun printSuccessConclusion(conclusion: Double) {
         println("결과는 뾰로롱 $conclusion 입니다.")
     }
 
