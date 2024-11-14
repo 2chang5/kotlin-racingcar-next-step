@@ -5,7 +5,7 @@ import step2.contorller.ConsoleView
 class DefaultConsoleView : ConsoleView {
     override fun getMathExpression(): List<String>? {
         println("안녕하세요 계산요정 멧돼지입니다🐗. 수식을 입력해주세요❤️")
-        val input = readLine()?.split(" ") ?: emptyList()
+        val input = readLine()?.split(" ")
 
         return input
     }
