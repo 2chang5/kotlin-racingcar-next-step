@@ -9,5 +9,5 @@ object BasicValidators {
     }
 
     fun List<String>.validEmptyString(): Result<List<String>> =
-        if (this.joinToString().isEmpty()) Result.success(this) else Result.failure(InputIsEmptyException())
+        if (this.joinToString(separator = "").isNotEmpty()) Result.success(this) else Result.failure(InputIsEmptyException())
 }
