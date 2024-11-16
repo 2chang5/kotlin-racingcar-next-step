@@ -1,10 +1,10 @@
 package step2.inputValidator
 
-import step2.inputValidator.BasicValidators.validEmptyString
-import step2.inputValidator.BasicValidators.validNull
-import step2.inputValidator.FourBasicOperationsValidators.validStartsAndEndsWithNumber
-import step2.inputValidator.FourBasicOperationsValidators.validateNumberInExpression
-import step2.inputValidator.FourBasicOperationsValidators.validateOperatorInExpression
+import step2.inputValidator.Validators.validEmptyString
+import step2.inputValidator.Validators.validNull
+import step2.inputValidator.Validators.validStartsAndEndsWithNumber
+import step2.inputValidator.Validators.validateNumberInExpression
+import step2.inputValidator.Validators.validateOperatorInExpression
 
 object FourBasicOperationsValidatorFacade {
     fun validate(input: List<String>?): Result<List<String>> =

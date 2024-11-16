@@ -1,15 +1,24 @@
 package step2.inputValidator
 
+import step2.inputValidator.InputValidateException.InputIsEmptyException
+import step2.inputValidator.InputValidateException.InputIsNullException
 import step2.inputValidator.InputValidateException.InvalidOperatorException
 import step2.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
 import step2.inputValidator.InputValidateException.NonNumericStartOrEndException
 
-object FourBasicOperationsValidators {
+object Validators {
     private const val PLUS_NOTATION = "+"
     private const val MINUS_NOTATION = "-"
     private const val TIMES_NOTATION = "*"
     private const val DIVIDE_NOTATION = "/"
     private val FourBasicOperationsNotations = listOf(PLUS_NOTATION, MINUS_NOTATION, TIMES_NOTATION, DIVIDE_NOTATION)
+
+    fun List<String>?.validNull(): Result<List<String>> {
+        return if (this != null) Result.success(this) else Result.failure(InputIsNullException())
+    }
+
+    fun List<String>.validEmptyString(): Result<List<String>> =
+        if (this.joinToString(separator = "").isNotEmpty()) Result.success(this) else Result.failure(InputIsEmptyException())
 
     fun List<String>.validStartsAndEndsWithNumber(): Result<List<String>> =
         if (this.first().toIntOrNull() != null && this.last().toIntOrNull() != null) {
