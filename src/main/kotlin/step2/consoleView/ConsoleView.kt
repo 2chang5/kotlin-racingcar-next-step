@@ -1,8 +1,8 @@
 package step2.consoleView
 
+import step2.consoleView.inputValidator.FourBasicOperationsValidatorFacade
+import step2.consoleView.inputValidator.InputValidateException
 import step2.contorller.View
-import step2.inputValidator.FourBasicOperationsValidatorFacade
-import step2.inputValidator.InputValidateException
 
 class ConsoleView : View {
     override fun getMathExpression(): List<String>? {

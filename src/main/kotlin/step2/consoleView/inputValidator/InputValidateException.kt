@@ -1,4 +1,4 @@
-package step2.inputValidator
+package step2.consoleView.inputValidator
 
 sealed class InputValidateException : Throwable() {
     class InputIsNullException : InputValidateException()

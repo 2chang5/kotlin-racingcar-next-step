@@ -1,10 +1,10 @@
-package step2.inputValidator
+package step2.consoleView.inputValidator
 
-import step2.inputValidator.InputValidateException.InputIsEmptyException
-import step2.inputValidator.InputValidateException.InputIsNullException
-import step2.inputValidator.InputValidateException.InvalidOperatorException
-import step2.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
-import step2.inputValidator.InputValidateException.NonNumericStartOrEndException
+import step2.consoleView.inputValidator.InputValidateException.InputIsEmptyException
+import step2.consoleView.inputValidator.InputValidateException.InputIsNullException
+import step2.consoleView.inputValidator.InputValidateException.InvalidOperatorException
+import step2.consoleView.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
+import step2.consoleView.inputValidator.InputValidateException.NonNumericStartOrEndException
 
 object Validators {
     private const val PLUS_NOTATION = "+"

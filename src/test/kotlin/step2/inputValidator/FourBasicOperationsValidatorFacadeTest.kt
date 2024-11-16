@@ -2,10 +2,12 @@ package step2.inputValidator
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import step2.inputValidator.InputValidateException.InputIsEmptyException
-import step2.inputValidator.InputValidateException.InputIsNullException
-import step2.inputValidator.InputValidateException.InvalidOperatorException
-import step2.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
+import step2.consoleView.inputValidator.FourBasicOperationsValidatorFacade
+import step2.consoleView.inputValidator.InputValidateException
+import step2.consoleView.inputValidator.InputValidateException.InputIsEmptyException
+import step2.consoleView.inputValidator.InputValidateException.InputIsNullException
+import step2.consoleView.inputValidator.InputValidateException.InvalidOperatorException
+import step2.consoleView.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
 
 class FourBasicOperationsValidatorFacadeTest {
     @Test

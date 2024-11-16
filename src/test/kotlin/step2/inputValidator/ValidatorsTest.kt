@@ -2,15 +2,16 @@ package step2.inputValidator
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import step2.inputValidator.InputValidateException.InputIsEmptyException
-import step2.inputValidator.InputValidateException.InputIsNullException
-import step2.inputValidator.InputValidateException.InvalidOperatorException
-import step2.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
-import step2.inputValidator.Validators.validEmptyString
-import step2.inputValidator.Validators.validNull
-import step2.inputValidator.Validators.validNumberInExpression
-import step2.inputValidator.Validators.validOperatorInExpression
-import step2.inputValidator.Validators.validStartsAndEndsWithNumber
+import step2.consoleView.inputValidator.InputValidateException
+import step2.consoleView.inputValidator.InputValidateException.InputIsEmptyException
+import step2.consoleView.inputValidator.InputValidateException.InputIsNullException
+import step2.consoleView.inputValidator.InputValidateException.InvalidOperatorException
+import step2.consoleView.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
+import step2.consoleView.inputValidator.Validators.validEmptyString
+import step2.consoleView.inputValidator.Validators.validNull
+import step2.consoleView.inputValidator.Validators.validNumberInExpression
+import step2.consoleView.inputValidator.Validators.validOperatorInExpression
+import step2.consoleView.inputValidator.Validators.validStartsAndEndsWithNumber
 
 class ValidatorsTest {
     @Test
