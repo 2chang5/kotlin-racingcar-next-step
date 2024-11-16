@@ -8,9 +8,9 @@ import step2.inputValidator.InputValidateException.InvalidOperatorException
 import step2.inputValidator.InputValidateException.NonNumericAtExpectedPositionException
 import step2.inputValidator.Validators.validEmptyString
 import step2.inputValidator.Validators.validNull
+import step2.inputValidator.Validators.validNumberInExpression
+import step2.inputValidator.Validators.validOperatorInExpression
 import step2.inputValidator.Validators.validStartsAndEndsWithNumber
-import step2.inputValidator.Validators.validateNumberInExpression
-import step2.inputValidator.Validators.validateOperatorInExpression
 
 class ValidatorsTest {
     @Test
@@ -73,31 +73,31 @@ class ValidatorsTest {
     fun `계산식 자릿수에서(1부터시작) 홀수자리가 숫자가 아닐시 Result 실패 상황(NonNumericAtExpectedPositionException) 을 반환한다`() {
         val input: List<String> = "1 + 2 / f + 1".split(" ")
 
-        assertThat(input.validateNumberInExpression().isFailure).isTrue()
-        assertThat(input.validateNumberInExpression().exceptionOrNull() is NonNumericAtExpectedPositionException).isTrue()
+        assertThat(input.validNumberInExpression().isFailure).isTrue()
+        assertThat(input.validNumberInExpression().exceptionOrNull() is NonNumericAtExpectedPositionException).isTrue()
     }
 
     @Test
     fun `계산식 자릿수에서(1부터시작) 홀수자리가 모두 숫자일시 Result 성공 상황(입력된 값) 을 반환한다`() {
         val input: List<String> = "1 + 2 / 4 + 1".split(" ")
 
-        assertThat(input.validateNumberInExpression().isSuccess).isTrue()
-        assertThat(input.validateNumberInExpression().getOrNull() == "1 + 2 / 4 + 1".split(" ")).isTrue()
+        assertThat(input.validNumberInExpression().isSuccess).isTrue()
+        assertThat(input.validNumberInExpression().getOrNull() == "1 + 2 / 4 + 1".split(" ")).isTrue()
     }
 
     @Test
     fun `계산식 자릿수에서(1부터시작) 짝수자리가 사칙연산 기호가 아닐시 Result 실패 상황(InvalidOperatorException) 을 반환한다`() {
         val input: List<String> = "1 + 2 & 3 + 1".split(" ")
 
-        assertThat(input.validateOperatorInExpression().isFailure).isTrue()
-        assertThat(input.validateOperatorInExpression().exceptionOrNull() is InvalidOperatorException).isTrue()
+        assertThat(input.validOperatorInExpression().isFailure).isTrue()
+        assertThat(input.validOperatorInExpression().exceptionOrNull() is InvalidOperatorException).isTrue()
     }
 
     @Test
     fun `계산식 자릿수에서(1부터시작) 짝수자리가 모두 사칙연산 기호일시 Result 성공 상황(입력된 값) 을 반환한다`() {
         val input: List<String> = "1 + 2 / 4 + 1".split(" ")
 
-        assertThat(input.validateOperatorInExpression().isSuccess).isTrue()
-        assertThat(input.validateOperatorInExpression().getOrNull() == "1 + 2 / 4 + 1".split(" ")).isTrue()
+        assertThat(input.validOperatorInExpression().isSuccess).isTrue()
+        assertThat(input.validOperatorInExpression().getOrNull() == "1 + 2 / 4 + 1".split(" ")).isTrue()
     }
 }

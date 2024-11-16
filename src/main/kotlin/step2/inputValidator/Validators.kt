@@ -27,7 +27,7 @@ object Validators {
             Result.failure(NonNumericStartOrEndException())
         }
 
-    fun List<String>.validateNumberInExpression(): Result<List<String>> {
+    fun List<String>.validNumberInExpression(): Result<List<String>> {
         this.asSequence().filterIndexed { index, _ ->
             // 계산식 index가 1부터시작한다고 가정했을때 홀수만 수집
             (index + 1) % 2 != 0
@@ -38,7 +38,7 @@ object Validators {
         return Result.success(this)
     }
 
-    fun List<String>.validateOperatorInExpression(): Result<List<String>> {
+    fun List<String>.validOperatorInExpression(): Result<List<String>> {
         this.asSequence().filterIndexed { index, _ ->
             // 계산식 index가 1부터 시작한다고 가정했을때 짝수만 수집
             (index + 1) % 2 == 0
