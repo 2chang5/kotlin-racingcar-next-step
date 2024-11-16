@@ -25,11 +25,14 @@ class ConsoleView : View {
     private fun getErrorMessage(reason: Throwable): String {
         if (reason !is InputValidateException) return "관리자에게 문의주세요 (가상의 에러코드)"
         return when (reason) {
-            is InputValidateException.InputIsNullException -> "수식으로 아무것도 안넣으셨네요 당신은 장난꾸러기 히히히"
-            is InputValidateException.InputIsEmptyException -> "수식으로 아무것도 안넣으셨네요 당신은 장난꾸러기 히히히"
-            is InputValidateException.NonNumericStartOrEndException -> "숫자가 들어가야할 자리에 이상한게 들어갔어요 확인해보세요"
-            is InputValidateException.NonNumericAtExpectedPositionException -> "숫자가 들어가야할 자리에 이상한게 들어갔어요 확인해보세요"
-            is InputValidateException.InvalidOperatorException -> "사칙연산을 제외한 연산자가 들어왔어요 확인해보세요"
+            is InputValidateException.InputIsNullException,
+            is InputValidateException.InputIsEmptyException,
+            -> "수식으로 아무것도 안넣으셨네요 당신은 장난꾸러기 히히히"
+            is InputValidateException.NonNumericStartOrEndException,
+            is InputValidateException.NonNumericAtExpectedPositionException,
+            -> "숫자가 들어가야할 자리에 이상한게 들어갔어요 확인해보세요"
+            is InputValidateException.InvalidOperatorException,
+            -> "사칙연산을 제외한 연산자가 들어왔어요 확인해보세요"
         }
     }
 
