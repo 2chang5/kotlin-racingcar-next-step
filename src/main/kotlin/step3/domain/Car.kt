@@ -9,6 +9,6 @@ class Car(private val movePolicy: MovePolicy) {
     }
 
     companion object {
-        private const val CAR_DEFAULT_LOCATION = 1
+        const val CAR_DEFAULT_LOCATION = 1
     }
 }
