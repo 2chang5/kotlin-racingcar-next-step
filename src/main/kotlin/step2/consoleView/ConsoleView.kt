@@ -7,7 +7,7 @@ import step2.inputValidator.InputValidateException
 class ConsoleView : View {
     override fun getMathExpression(): List<String>? {
         println("안녕하세요 계산요정 멧돼지입니다🐗. 수식을 입력해주세요❤️")
-        val input = readLine()?.split(" ")
+        val input = readlnOrNull()?.split(" ")
         FourBasicOperationsValidatorFacade.validate(input)
             .onSuccess { return it }
             .onFailure {
@@ -23,7 +23,7 @@ class ConsoleView : View {
     }
 
     private fun getErrorMessage(reason: Throwable): String {
-        reason as? InputValidateException ?: return "관리자에게 문의주세요 (가상의 에러코드)"
+        if (reason !is InputValidateException) return "관리자에게 문의주세요 (가상의 에러코드)"
         return when (reason) {
             is InputValidateException.InputIsNullException -> "수식으로 아무것도 안넣으셨네요 당신은 장난꾸러기 히히히"
             is InputValidateException.InputIsEmptyException -> "수식으로 아무것도 안넣으셨네요 당신은 장난꾸러기 히히히"
