@@ -12,10 +12,14 @@ class ConsoleView : View {
     }
 
     override fun printResultTitle() {
-        TODO("Not yet implemented")
+        println("실행 결과")
     }
 
     override fun printResult(carLocations: List<Int>) {
-        TODO("Not yet implemented")
+        carLocations.forEach {
+            repeat(it) { print("-") }
+            println()
+        }
+        println()
     }
 }
