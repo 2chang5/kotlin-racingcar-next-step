@@ -65,4 +65,8 @@ class ConsoleView : View {
         }
         println()
     }
+
+    override fun printErrorMessage(debugMessage: String) {
+        println(debugMessage)
+    }
 }

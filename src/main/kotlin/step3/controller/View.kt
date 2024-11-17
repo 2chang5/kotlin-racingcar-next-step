@@ -8,4 +8,6 @@ interface View {
     fun printResultTitle()
 
     fun printResult(carLocations: List<Int>)
+
+    fun printErrorMessage(debugMessage: String)
 }
