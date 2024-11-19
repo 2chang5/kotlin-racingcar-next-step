@@ -32,7 +32,7 @@ class MainController(private val view: View) {
         }
 
     private fun initCar() {
-        carList = List(3) { Car(RandomMovePolicy()) }
+        carList = List(carCount) { Car(RandomMovePolicy()) }
     }
 
     private fun proceedGame() {
