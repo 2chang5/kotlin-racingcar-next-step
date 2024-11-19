@@ -10,11 +10,7 @@ class MainController(private val view: View) {
 
     private lateinit var carList: List<Car>
 
-    init {
-        carRacing()
-    }
-
-    private fun carRacing() {
+    fun carRacing() {
         start()
             .onSuccess {
                 initCar()

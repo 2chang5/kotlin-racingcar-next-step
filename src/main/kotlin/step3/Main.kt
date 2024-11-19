@@ -4,5 +4,7 @@ import step3.controller.MainController
 import step3.view.ConsoleView
 
 fun main() {
-    MainController(ConsoleView())
+    val controller = MainController(ConsoleView())
+
+    controller.carRacing()
 }
