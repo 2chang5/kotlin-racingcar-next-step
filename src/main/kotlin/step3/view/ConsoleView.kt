@@ -54,11 +54,11 @@ class ConsoleView : View {
         }
     }
 
-    override fun printResultTitle() {
+    override fun showResultInterface() {
         println("실행 결과")
     }
 
-    override fun printResult(carLocations: List<Int>) {
+    override fun showResult(carLocations: List<Int>) {
         carLocations.forEach {
             repeat(it) { print("-") }
             println()

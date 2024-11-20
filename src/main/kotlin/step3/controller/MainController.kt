@@ -32,7 +32,7 @@ class MainController(private val view: View) {
     }
 
     private fun proceedGame() {
-        view.printResultTitle()
+        view.showResultInterface()
         printStepResult()
         repeat(totalTurn) {
             carList.forEach { it.moveForward() }
@@ -41,6 +41,6 @@ class MainController(private val view: View) {
     }
 
     private fun printStepResult() {
-        view.printResult(carList.map { it.location })
+        view.showResult(carList.map { it.location })
     }
 }

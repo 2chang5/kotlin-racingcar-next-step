@@ -5,9 +5,9 @@ interface View {
 
     fun getMoveCount(): Int?
 
-    fun printResultTitle()
+    fun showResultInterface()
 
-    fun printResult(carLocations: List<Int>)
+    fun showResult(carLocations: List<Int>)
 
     fun printErrorMessage(debugMessage: String)
 }
