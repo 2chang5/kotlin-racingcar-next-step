@@ -1,6 +1,5 @@
-package step3.view
+package step3.view.console
 
-import step3.controller.View
 import step3.view.validator.InputValidateException
 import step3.view.validator.InputValidateException.InputIsEmptyException
 import step3.view.validator.InputValidateException.InputIsNullException
@@ -10,8 +9,8 @@ import step3.view.validator.concrete.EmptyStringValidator
 import step3.view.validator.concrete.NullValidator
 import step3.view.validator.concrete.NumberValidator
 
-class ConsoleView : View {
-    override fun getCarCount(): Int? {
+class InputView {
+    fun getCarCount(): Int? {
         println("자동차 대수는 몇 대인가요?")
         val input = readlnOrNull()
         NullValidator()
@@ -25,7 +24,7 @@ class ConsoleView : View {
         return null
     }
 
-    override fun getMoveCount(): Int? {
+    fun getMoveCount(): Int? {
         println("시도할 횟수는 몇 회인가요?")
         val input = readlnOrNull()
         NullValidator()
@@ -52,21 +51,5 @@ class ConsoleView : View {
             is NonNumericException,
             -> "입력된 내용이 숫자가 아닙니다."
         }
-    }
-
-    override fun showResultInterface() {
-        println("실행 결과")
-    }
-
-    override fun showResult(carLocations: List<Int>) {
-        carLocations.forEach {
-            repeat(it) { print("-") }
-            println()
-        }
-        println()
-    }
-
-    override fun printErrorMessage(debugMessage: String) {
-        println(debugMessage)
     }
 }
