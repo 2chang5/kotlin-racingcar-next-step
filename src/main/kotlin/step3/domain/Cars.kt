@@ -1,7 +1,9 @@
 package step3.domain
 
-class Cars(vararg cars: Car) {
+class Cars(cars: List<Car>) {
     val value: List<Car> = cars.toList()
+
+    constructor(vararg cars: Car) : this(cars.toList())
 
     fun proceedTurn() {
         value.forEach { it.moveForward() }

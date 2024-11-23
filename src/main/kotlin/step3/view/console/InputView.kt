@@ -1,17 +1,14 @@
 package step3.view.console
 
 class InputView {
-    fun getCarCount(): Int? {
-        println("자동차 대수는 몇 대인가요?")
+    fun getCarNames(): List<String>? {
+        println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).")
         val input = readlnOrNull()
         if (input.isNullOrEmpty()) {
             println("아무것도 입력되지 않았습니다.")
             return null
         }
-        return input.toIntOrNull() ?: run {
-            println("입력된 내용이 숫자가 아닙니다.")
-            return null
-        }
+        return input.split(",")
     }
 
     fun getMoveCount(): Int? {
