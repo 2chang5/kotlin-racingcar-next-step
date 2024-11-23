@@ -25,7 +25,8 @@ class MainController(private val view: View) {
 
     private fun getCars(carCount: Int): List<Car> {
         val movePolicy = RandomMovePolicy()
-        return List(carCount) { Car(movePolicy) }
+        return List(carCount) { Car(movePolicy = movePolicy, name = "임시") }
+        // todo 이름관련 변경 필요
     }
 
     private fun proceedGame(
