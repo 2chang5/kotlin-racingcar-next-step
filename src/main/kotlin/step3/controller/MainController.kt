@@ -4,7 +4,7 @@ import step3.domain.Car
 import step3.domain.Cars
 import step3.domain.RandomMovePolicy
 
-class MainController(private val view: View) {
+class MainController(private val inputView: View.Input, private val outputView: View.Output) {
     fun carRacing() {
         val carNames: List<String> = getCarNames().getOrNull() ?: return
         val totalTurn: Int = getTotalTurn().getOrNull() ?: return
@@ -16,13 +16,13 @@ class MainController(private val view: View) {
 
     private fun getCarNames(): Result<List<String>> =
         kotlin.runCatching {
-            view.getCarNames() ?: throw IllegalStateException("입력값이 Null이 들어왔습니다 확인해주세요")
-        }.onFailure { view.printErrorMessage(it.message ?: "에러 상황입니다.") }
+            inputView.getCarNames() ?: throw IllegalStateException("입력값이 Null이 들어왔습니다 확인해주세요")
+        }.onFailure { outputView.printErrorMessage(it.message ?: "에러 상황입니다.") }
 
     private fun getTotalTurn(): Result<Int> =
         kotlin.runCatching {
-            view.getMoveCount() ?: throw IllegalStateException("입력값이 Null이 들어왔습니다 확인해주세요")
-        }.onFailure { view.printErrorMessage(it.message ?: "에러 상황입니다.") }
+            inputView.getMoveCount() ?: throw IllegalStateException("입력값이 Null이 들어왔습니다 확인해주세요")
+        }.onFailure { outputView.printErrorMessage(it.message ?: "에러 상황입니다.") }
 
     private fun getCars(carNames: List<String>): Cars {
         val movePolicy = RandomMovePolicy()
@@ -33,12 +33,12 @@ class MainController(private val view: View) {
         cars: Cars,
         totalTurn: Int,
     ) {
-        view.showResultInterface()
-        view.showResult(cars.value)
+        outputView.showResultInterface()
+        outputView.showResult(cars.value)
         repeat(totalTurn) {
             cars.proceedTurn()
-            view.showResult(cars.value)
+            outputView.showResult(cars.value)
         }
-        view.showWinner(cars.getWinner())
+        outputView.showWinner(cars.getWinner())
     }
 }

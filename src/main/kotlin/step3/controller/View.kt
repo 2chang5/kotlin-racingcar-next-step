@@ -3,15 +3,19 @@ package step3.controller
 import step3.domain.Car
 
 interface View {
-    fun getCarNames(): List<String>?
+    interface Input {
+        fun getCarNames(): List<String>?
 
-    fun getMoveCount(): Int?
+        fun getMoveCount(): Int?
+    }
 
-    fun showResultInterface()
+    interface Output {
+        fun showResultInterface()
 
-    fun showResult(cars: List<Car>)
+        fun showResult(cars: List<Car>)
 
-    fun showWinner(winners: List<String>)
+        fun showWinner(winners: List<String>)
 
-    fun printErrorMessage(debugMessage: String)
+        fun printErrorMessage(debugMessage: String)
+    }
 }
