@@ -1,7 +1,11 @@
 package step3.domain
 
-class Car(private val movePolicy: MovePolicy, location: Int? = null, val name: String) {
-    var location = location ?: CAR_DEFAULT_LOCATION
+class Car(
+    private val movePolicy: MovePolicy,
+    location: Int = CAR_DEFAULT_LOCATION,
+    val name: String,
+) {
+    var location = location
         private set
 
     init {
