@@ -3,6 +3,7 @@ package step3.view.validator.concrete
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
+@Deprecated("사용하지 않는 객체의 테스트")
 class ValidatorTest {
     @Test
     fun `emptyString,Null,Number 검증기를 적용했을때 문자열을 입력한경우 실패상황을 반환한다`() {
